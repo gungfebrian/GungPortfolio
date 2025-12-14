@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 		title: "Gung Febrian",
 		description:
 			"Portfolio of Gung Febrian: Computer Engineering Student",
-		url: "https://gung-portfolio.vercel.app/", // REMINDER: Update this to your live domain!
+		url: "https://gungfebrian.site/", // REMINDER: Update this to your live domain!
 		siteName: "Gung Febrian Portfolio",
 		images: [
 			{
