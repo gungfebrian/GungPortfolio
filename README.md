@@ -5,9 +5,13 @@
 
 🛠 Tech Stack
 This portfolio is built on a modern, high performance web development stack:
+
 Framework: Next.js 13 using App Router
+
 Styling: Tailwind CSS 
+
 Animations: Framer Motion 
+
 Content: Contentlayer 
 
 🏗 Key Projects Showcase
