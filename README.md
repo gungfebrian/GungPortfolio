@@ -1,5 +1,5 @@
 <div align="center">
-<h1 align="center">Gung Febrian | Hybrid Engineering Portfolio</h1>
+<h1 align="center">Gung Febrian | Portfolio</h1>
 <p>Computer Engineering Student, ITS Batch 2023 | Organizational Leader & Hybrid Athlete</p>
 </div>
 
