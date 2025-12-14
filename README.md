@@ -1,6 +1,6 @@
 <div align="center">
 <h1 align="center">Gung Febrian | Portfolio</h1>
-<p>Computer Engineering Student, ITS Batch 2023</p>
+<p>Computer Engineering Student at Sepuluh Nopember Institute of Technology, Batch 2023</p>
 </div>
 
 🛠 Tech Stack
