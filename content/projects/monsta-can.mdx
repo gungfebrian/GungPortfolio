@@ -1,0 +1,39 @@
+---
+title: MONSTA CAN
+description: An interactive IoT trashcan that opens automatically and gamifies cleaning by counting trash.
+date: "2025-03-11"
+published: true
+image: /monsta-can.jpg
+---
+
+Overview
+
+I believe even everyday objects can be made more engaging through technology. My goal with "Monsta Can" was to transform a simple trashcan into a fun, interactive IoT device that could be monitored and controlled remotely.
+
+Tech Stack & Hardware
+
+Sensors: 2x Ultrasonic Sensors
+
+Microcontroller: ESP32
+
+Actuator: 1x Servo SG90
+
+Power: 1x 20A 3.7v Battery with 5v Step Up
+
+How It Works
+
+Monsta Can uses two ultrasonic sensors to automate its operation:
+
+Proximity Detection: One sensor in front detects movement. When you get close, the servo automatically opens the lid.
+
+Trash Counting: A second sensor inside the can detects when trash is thrown in, incrementing a counter.
+
+User Interface
+
+The web interface (hosted on the ESP32) allows for remote monitoring and control:
+
+Status: Shows if the lid is Open or Closed.
+
+Counter: Displays "Times Opened Today" or total trash count.
+
+Controls: Manual buttons to "Open Lid" or "Reset Count".

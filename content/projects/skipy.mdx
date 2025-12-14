@@ -1,0 +1,38 @@
+---
+title: SKIPY - 4 DOF Robotic Arm
+description: A 4 DOF robotic arm designed to explore robotics and kinematics, featuring an intuitive "teach and repeat" web controller.
+date: "2025-05-18"
+published: true
+image: /skipY.png
+repository: chronark/skipy
+---
+
+Overview
+
+For this project, I wanted to explore the fundamentals of robotics and kinematics. I challenged myself to build not just the robot, but also an intuitive way for anyone to control it. The result is SKIPY, a 4 DOF (Degrees of Freedom) robotic arm that can be programmed through a simple local host web interface.
+
+Tech Stack & Hardware
+
+Microcontroller: ESP32
+
+Actuators: 4x SG90 Servos
+
+Power: 2x 20A 3.7v Batteries with XL 4006 Stepdown (5A)
+
+Display: OLED 64x128 (acting as a "face" to make SKIPY feel alive)
+
+Software: C++, Web Interface (HTML/CSS/JS hosted on ESP32)
+
+How It Works
+
+SKIPY features 4 servos: 3 to control the movement (Base, Shoulder, Elbow) and 1 for the Gripper. The integrated web controller allows users to control each servo individually.
+
+The OLED screen acts as a face, giving the robot personality.
+
+UI/UX Design
+
+The core of this project was the user experience. I designed a web controller centered around a "teach and repeat" workflow.
+
+Intuitive Workflow: The interface provides actions like "Record," "Add Point," and "Play."
+
+Programming: A user can program the arm simply by moving it to a position using sliders and saving that point, creating a sequence step-by-step.
