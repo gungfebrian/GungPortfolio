@@ -1,33 +1,94 @@
 <div align="center">
-    <a href="https://chronark.com"><h1 align="center">chronark.com</h1></a>
-
-My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), [Upstash](https://upstash.com?ref=chronark.com), [Contentlayer](https://www.contentlayer.dev/) and deployed to [Vercel](https://vercel.com/).
-
+<h1 align="center">Gung Febrian | Hybrid Engineering Portfolio</h1>
+<p>Computer Engineering Student, ITS Batch 2023 | Organizational Leader & Hybrid Athlete</p>
 </div>
 
-<br/>
+My Profile
+
+This repository hosts the personal portfolio of Me, Gung Febrian, a Computer Engineering student at ITS Batch 2023.
+
+My work showcases a unique combination of high impact technical expertise and proven organizational leadership:
+
+Pillar
+
+Focus
+
+Key Experience
+
+Technical Skill
+
+IoT, Python, Data Analysis, and Robotics.
+
+Developing systems with Dual-Controller Architecture (Green Rover) and advanced ML integration.
+
+Organizational Leadership
+
+Student Body Management & Strategic Planning.
+
+Former Student Body Leader (2023-2024), AIESEC, and TEDx. Driven by the "Will to Change" philosophy.
+
+Discipline
+
+Mindset & Endurance.
+
+Applying the rigor and focus of a Hybrid Athlete to complex engineering challenges.
+
+🛠 Project Arsenal: Core Stack
+
+This portfolio is built using a modern, high-performance web development stack:
+
+Framework: Next.js 13 (App Router)
+
+Styling: Tailwind CSS (For responsive, utility-first design)
+
+Animations: Framer Motion (For smooth, high-end transitions)
+
+Content: Contentlayer (MDX for clean, documentation-style project write-ups)
+
+Deployment: Vercel
+
+🏗 Key Projects Showcase
+
+Project
+
+Technical Highlight
+
+Category
+
+Hybrid Green Rover
+
+Dual-Controller Architecture (Pi + ESP32) for concurrent AI vision and real-time motor control.
+
+Big Project / IoT
+
+MONSTA CAN
+
+ESP32-hosted web interface for gamified, automated proximity detection and trash counting.
+
+IoT Element
+
+SKIPY
+
+4 DOF Robotic Arm featuring a C++ firmware and intuitive "teach and repeat" kinematic programming.
+
+IoT Element
+
+⚡️ Running Locally
+
+Clone the repository:
+
+git clone [https://github.com/gungfebrian/GungPortfolio.git](https://github.com/gungfebrian/GungPortfolio.git)
+cd GungPortfolio
 
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/upstash/clone?demo-title=Next.js%20Portfolio%20with%20Pageview%20Counter&demo-description=Portfolio%20site%20with%20pageview%20counter%2C%20built%20with%20Next.js%2013%20App%20Router%2C%20Contentlayer%2C%20and%20Upstash%20Redis.&demo-url=https%3A%2F%2Fchronark.com%2F&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F1DA8n5a6WaP9p1FXf9LmUY%2Fc6264fa2732355787bf657df92dda8a1%2FCleanShot_2023-04-17_at_14.17.37.png&project-name=Next.js%20Portfolio%20with%20Pageview%20Counter&repository-name=nextjs-portfolio-pageview-counter&repository-url=https%3A%2F%2Fgithub.com%2Fchronark%2Fchronark.com&from=templates&integration-ids=oac_V3R1GIpkoJorr6fqyiwdhl17)
+Install dependencies (using pnpm):
 
-## Running Locally
-
-
-```sh-session
-git clone https://github.com/chronark/chronark.com.git
-cd chronark.com
-```
-
-
-Create a `.env` file similar to [`.env.example`](https://github.com/chronark/chronark.com/blob/main/.env.example).
-
-Then install dependencies and run the development server:
-```sh-session
 pnpm install
+
+
+Run the development server:
+
 pnpm dev
-```
 
 
-## Cloning / Forking
-
-Please remove all of my personal information (projects, images, etc.) before deploying your own version of this site.
+Open http://localhost:3000 in your browser.
