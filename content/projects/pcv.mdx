@@ -1,75 +1,76 @@
 ---
-title: "Interactive 'Higher or Lower' Game with Computer Vision"
+title: Interactive 'Higher or Lower' Game
+description: A Python-based interactive game that replaces traditional inputs with real-time computer vision, allowing players to use physical cards as controllers.
 date: "2025-01-15"
-description: "A Python-based interactive game that replaces traditional keyboard input with real-time playing card detection using OpenCV and Pygame."
-tags: ["Computer Vision", "Python", "OpenCV", "Pygame", "IoT"]
+published: true
+repository: 
+tags:
+  - "Computer Vision"
+  - "Python"
+  - "OpenCV"
+  - "Pygame"
+status: "Completed"
+platform: "Computer Vision"
 ---
 
-# Interactive 'Higher or Lower' Game using Computer Vision
+# Beyond the Keyboard
 
-## 💡 Overview
+Why limit gaming to a mouse and keyboard? **The Higher or Lower Project** explores the frontier of Human Computer Interaction by turning physical objects into digital inputs.
 
-This project explores the intersection of Human-Computer Interaction (HCI) and game development. Instead of using a mouse or keyboard, players interact with the game using **physical playing cards**. The system uses a camera to "see" the card, identify its rank and suit, and determine the game outcome in real-time[cite: 15, 16].
+I engineered this system to "see" and understand a standard deck of cards in real-time. By leveraging lightweight computer vision algorithms, the game detects the rank and suit of a card instantly, creating a seamless bridge between the physical tabletop and the digital screen.
 
-The core goal was to prove that classic image processing algorithms (like Template Matching) can solve real-world object recognition problems efficiently without needing heavy deep learning models[cite: 37].
-
-<div className="aspect-w-16 aspect-h-9">
-  <iframe 
-    src="https://www.youtube.com/embed/xwwmVB0pl1c?si=16114TGCpzpv8H3s" 
-    frameBorder="0" 
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-    allowFullScreen>
-  </iframe>
-</div>
-*[Watch the System Demonstration [cite: 155]]*
+<YouTube id= "xwwmVB0pl1c" />
 
 ---
 
-## 🛠️ Tech Stack
+## The Stack
 
-* **Language:** Python
-* **Vision Library:** OpenCV (Open Source Computer Vision Library) [cite: 60]
-* **Game Engine:** Pygame [cite: 109]
-* **Hardware:** Standard Webcam, Laptop
+I built this system to be lightweight and efficient, proving that robust object recognition doesn't always require heavy deep learning models.
 
----
-
-## ⚙️ How It Works: The Vision Pipeline
-
-The system is split into two main modules: the **Vision Engine** (perception) and the **Game Logic**[cite: 102]. Here is the step-by-step process of how the computer "reads" a card:
-
-### 1. Pre-processing & Edge Detection
-Before analyzing the card, the image must be simplified to reduce computational load[cite: 63].
-* **Grayscale Conversion:** Converting the image from BGR (Blue-Green-Red) to a single intensity channel.
-* **Gaussian Blur:** Smoothing the image to reduce high-frequency noise[cite: 64].
-* **Canny Edge Detection:** Extracting the structural lines of the card by detecting drastic changes in pixel intensity (gradients)[cite: 66, 67].
-
-
-### 2. Perspective Transform (The "Homography" Step)
-A major challenge in computer vision is that cards are rarely held perfectly straight. I implemented a **Perspective Transform** to fix this[cite: 71].
-* The system detects the four corners of the card contour.
-* It calculates a transformation matrix to "warp" the image.
-* The result is a flattened, top-down view of the card, regardless of how the user holds it[cite: 72, 75].
-
-### 3. Template Matching (Classification)
-Instead of using Neural Networks, I used a lightweight **Template Matching** method with the **Sum of Absolute Differences (SAD)** algorithm[cite: 17, 78].
-* The system compares the flattened card image against a database of 52 reference card images.
-* The template with the lowest difference score is identified as the match[cite: 79, 80].
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Core Logic** | Python | Main application controller |
+| **Vision Engine** | OpenCV | Image processing & contour detection |
+| **Game Loop** | Pygame | UI rendering & state management |
+| **Hardware** | Standard Webcam | Real-time video input |
 
 ---
 
-## 🎲 Game Logic Implementation
+## The Vision Pipeline
 
-The game follows the standard "Higher or Lower" rules implemented in `game_logic.py`[cite: 106].
+The challenge was to make the system robust against lighting changes and card rotation. I implemented a three-stage pipeline:
 
-* **Mapping:** Cards are mapped to numerical values (e.g., Jack = 11, King = 13)[cite: 121].
-* **State Management:** The system handles states to prevent crashes, ensuring a card is detected before a guess is registered[cite: 122].
+### 1. Pre-processing (The Filter)
+Before the system can "read," it must simplify the world.
+* **Grayscale & Blur:** I strip away color and smooth out high-frequency noise using Gaussian Blur.
+* **Canny Edge Detection:** The system isolates the card's structure by detecting drastic gradients in pixel intensity, separating the object from the background.
+
+### 2. Homography (The Perspective Fix)
+Users rarely hold cards perfectly straight. To solve this, I implemented a **Perspective Transform**.
+* The system detects the four corners of the card's contour.
+* It calculates a transformation matrix to mathematically "warp" the image.
+* **Result:** A perfectly flattened, top-down view of the card, regardless of how the user holds it in 3D space.
+
+### 3. Template Matching (The Brain)
+Instead of a heavy Neural Network, I used a highly optimized **Sum of Absolute Differences (SAD)** algorithm.
+* The system compares the flattened card against a pre-loaded database of 52 reference images.
+* It calculates the pixel difference score for every candidate.
+* The lowest score wins—identifying the card with high accuracy in milliseconds.
+
+---
+
+## Game Architecture
+
+The logic is decoupled from the vision system to prevent frame-rate drops.
+
+* **State Machine:** The game cycles through distinct states (`WAITING`, `DETECTED`, `GUESSING`) to ensure inputs are deliberate.
+* **Safety Protocols:** I implemented validation checks to prevent the game from crashing if a card is partially obscured or dropped.
 
 ```python
-# Snippet: Safety validation before processing a guess [cite: 124-129]
 if self.current_card is None:
     self.message = "Wait for Reference Card! Press 'R'."
     return False
+
 if self.next_card is None:
     self.message = "Wait for GUESS Card detection!"
     return False

@@ -1,0 +1,40 @@
+---
+title: "Hydra - Distributed WebGPU Grid (Upcoming....)"
+description: "A browser-based distributed computing system that pools GPU resources from connected devices using WebGPU and WebSockets to process heavy parallel workloads."
+date: "2026-02-01"
+published: true
+repository: chronark/hydra-compute
+tags:
+  - "Distributed Systems"
+  - "WebGPU"
+  - "TypeScript"
+  - "WebSockets"
+  - "Node.js"
+status: "Upcoming"
+platform: "System Architecture"
+---
+
+# Supercomputing in the Browser
+
+Cloud computing is expensive. But we all have powerful GPUs sitting idle in our laptops and phones. **Hydra** is a proof-of-concept for a decentralized "Volunteer Computing" grid.
+
+By visiting a URL, a device becomes a "Node." The Host machine splits a complex matrix multiplication or rendering task into chunks, distributes them via **WebSockets** to all connected Nodes, and aggregates the results—turning a classroom of Chromebooks into a supercomputer.
+
+---
+
+## 🛠 Tech Stack
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Compute Core** | WebGPU (WGSL) | Hardware-accelerated parallel processing |
+| **Networking** | Socket.io | Real-time task distribution & synchronization |
+| **Frontend** | React + Three.js | Visualizing active nodes and task progress |
+| **Backend** | Node.js / Redis | Orchestrating connections and state |
+
+---
+
+## ⚙️ The Engineering Challenge
+
+1.  **Latency vs. Compute:** Sending data over the network takes time. I must calculate the "Cost of Transfer" vs. "Cost of Compute" to ensure distributing the task is actually faster than running it locally.
+2.  **Fault Tolerance:** If a phone disconnects mid-calculation, the system must detect the dropout and re-assign that chunk of work to another node immediately.
+3.  **Shader Programming:** Writing raw **WGSL (WebGPU Shading Language)** to perform general-purpose calculations (GPGPU) on the graphics card.

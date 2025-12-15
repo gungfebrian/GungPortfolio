@@ -1,0 +1,40 @@
+---
+title: "SignLens - AI Accessibility Interface (Upcoming.....)"
+description: "A real-time video interpretation tool that translates Sign Language hand gestures into text and speech using browser-based computer vision."
+date: "2026-03-1"
+published: true
+repository: chronark/sign-lens
+tags:
+  - "Artificial Intelligence"
+  - "TensorFlow.js"
+  - "React"
+  - "WebRTC"
+  - "Accessibility"
+status: "Upcoming"
+platform: "Web Application"
+---
+
+# Breaking the Silence
+
+Video calls are a standard part of life, but they remain inaccessible to the mute and deaf community without human interpreters. **SignLens** bridges this gap using Edge AI.
+
+Unlike server-based solutions that send video to the cloud (risking privacy and latency), SignLens runs a lightweight **LSTM (Long Short-Term Memory)** neural network entirely inside the user's browser. It tracks hand skeleton landmarks in real-time and translates dynamic gestures into spoken audio.
+
+---
+
+## 🛠 Tech Stack
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **Vision Model** | MediaPipe Hands | Extracting 21 3D hand landmarks |
+| **Translation** | TensorFlow.js | Custom LSTM model for sequence classification |
+| **Video** | WebRTC | Peer-to-peer video streaming |
+| **Audio** | Web Speech API | Text-to-Speech synthesis |
+
+---
+
+## 🧠 The Engineering Challenge
+
+1.  **Sequence Modeling:** A static image isn't enough (e.g., "Hello" is a wave, not a pose). I trained a Recurrent Neural Network (RNN) to analyze *temporal* sequences of hand positions over 30 frames.
+2.  **Performance Optimization:** Running pose estimation + neural network inference + video rendering simultaneously is heavy. I utilize **Web Workers** to offload the AI processing, keeping the main thread free for UI rendering.
+3.  **Data Collection:** I built a custom data-recording tool to capture diverse sign language samples, creating a robust dataset for training.

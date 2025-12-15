@@ -1,38 +1,50 @@
 ---
-title: SKIPY - 4 DOF Robotic Arm
-description: A 4 DOF robotic arm designed to explore robotics and kinematics, featuring an intuitive "teach and repeat" web controller.
+title: SKIPY - 3 DOF Robotic Arm
+description: A 3-DOF robotic arm designed to explore robotics and kinematics, featuring an intuitive teach-and-repeat web controller.
 date: "2025-05-18"
 published: true
 image: /skipY.png
 repository: chronark/skipy
+tags:
+  - "IoT"
+  - "ESP32"
+  - "C++"
+  - "Robotics"
+  - "Embedded Systems"
+status: "Completed"
+platform: "IoT & Embedded"
 ---
 
-Overview
+# The Mission
 
-For this project, I wanted to explore the fundamentals of robotics and kinematics. I challenged myself to build not just the robot, but also an intuitive way for anyone to control it. The result is SKIPY, a 4 DOF (Degrees of Freedom) robotic arm that can be programmed through a simple local host web interface.
+For this project, I wanted to explore the fundamentals of robotics and kinematics. I challenged myself to build not just the robot, but also an intuitive way for anyone to control it. The result is SKIPY, a 3 DOF Degrees of Freedom robotic arm that can be programmed through a simple local host web interface.
 
-Tech Stack & Hardware
+---
 
-Microcontroller: ESP32
+## Hardware Specs
 
-Actuators: 4x SG90 Servos
+I engineered the power delivery system to handle high current spikes from the servos, ensuring smooth operation without brownouts.
 
-Power: 2x 20A 3.7v Batteries with XL 4006 Stepdown (5A)
+| Component | Specification | Role |
+| :--- | :--- | :--- |
+| **Microcontroller** | ESP32 | Web Server & Kinematics Engine |
+| **Actuators** | 4x SG90 Servos | 3 DOF Movement + 1 Gripper |
+| **Power Storage** | 2x 18650 Li-ion Batteries | High capacity power source |
+| **Regulation** | XL4006 Step Down | Stable 5V output |
+| **Stability** | 1000µF Capacitor | Smoothing voltage spikes |
+| **Display** | OLED 64x128 | Status & Personality Interface |
 
-Display: OLED 64x128 (acting as a "face" to make SKIPY feel alive)
+---
 
-Software: C++, Web Interface (HTML/CSS/JS hosted on ESP32)
+## Engineering The Logic
 
-How It Works
+SKIPY features a 3-DOF architecture driven by 4 servos: three control the spatial positioning (Base, Shoulder, Elbow) and one actuates the Gripper.
 
-SKIPY features 4 servos: 3 to control the movement (Base, Shoulder, Elbow) and 1 for the Gripper. The integrated web controller allows users to control each servo individually.
+The OLED screen acts as a face, giving the robot personality while providing system status feedback.
 
-The OLED screen acts as a face, giving the robot personality.
-
-UI/UX Design
+### Teach and Repeat
 
 The core of this project was the user experience. I designed a web controller centered around a "teach and repeat" workflow.
 
-Intuitive Workflow: The interface provides actions like "Record," "Add Point," and "Play."
-
-Programming: A user can program the arm simply by moving it to a position using sliders and saving that point, creating a sequence step-by-step.
+* **Intuitive Workflow:** The interface provides actions like Record, Add Point, and Play.
+* **Programming:** A user can program the arm simply by moving it to a position using sliders and saving that point, creating a sequence step by step.

@@ -43,8 +43,23 @@ export const Project = defineDocumentType(() => ({
 			type: "string",
 		},
 		image: {
-			type: "string", // Added image field
+			type: "string",
 		},
+		// --- ADDED TAGS ---
+		tags: {
+			type: "list",
+			of: { type: "string" },
+		},
+		// --- ADDED STATUS ---
+		status: {
+			type: "enum",
+			options: ["Completed", "In Progress", "Upcoming"],
+			default: "Completed",
+		},
+		platform: {
+            type: "string",
+            description: "The platform this project runs on (e.g., Web, iOS, IoT)",
+        },
 	},
 	computedFields,
 }));
@@ -77,8 +92,6 @@ export default makeSource({
 				{
 					theme: "github-dark",
 					onVisitLine(node) {
-						// Prevent lines from collapsing in `display: grid` mode, and allow empty
-						// lines to be copy/pasted
 						if (node.children.length === 0) {
 							node.children = [{ type: "text", value: " " }];
 						}

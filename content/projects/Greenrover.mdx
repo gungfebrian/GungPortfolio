@@ -1,7 +1,88 @@
 ---
 title: Green Rover - Autonomous Trash Detection
-description: An autonomous robot implementing a Hybrid Dual-Controller Architecture to identify and locate trash in real-time, solving common IoT robotics performance bottlenecks.
+description: An autonomous robot implementing a Hybrid Dual Controller Architecture to identify and locate trash in realtime.
 date: "2025-11-01"
 published: true
 image: /greenrover.png
+repository: chronark/greenrover
+tags:
+  - "IoT"
+  - "ESP32"
+  - "Raspberry Pi 4"
+  - "Computer Vision"
+  - "Python"
+  - "Roboflow"
+  - "3D Printing"
+status: "Completed"
+platform: "IoT & Robotics"
 ---
+
+# The Mission
+
+Plastic pollution is a crisis. Manual cleanup is slow. **Green Rover** is the solution.
+
+I engineered this robot, it is a fully autonomous agent capable of patrolling environments, identifying waste with good perception, and navigating complex terrain without intervention.
+
+<YouTube id= "Gm7ZFIPPxAQ" />
+
+---
+
+## The Architecture
+
+The core innovation of Green Rover is its **Hybrid Dual-Controller System**—a "Brain and Muscle" architecture designed to overcome the hardware limitations of standard IoT devices.
+
+### The Brain: Raspberry Pi 4
+* **Role:** High-Level Intelligence.
+* **Function:** Runs the YOLOv8 Neural Network, processes voice commands, and hosts the web dashboard.
+* **Why:** It delegates all physical exertion to the ESP32, ensuring the AI never stutters.
+
+### The Muscle: ESP32
+* **Role:** Real-Time Reflexes.
+* **Function:** Generates precise PWM signals for motors, controls the pan-tilt servo, and reads ultrasonic sensors in microseconds.
+* **Impact:** This split architecture boosted system performance by **300%**, jumping from 4.5 FPS to **14.5 FPS**.
+
+---
+
+## Hardware & Components
+
+Every component was selected for maximum efficiency and integration.
+
+| Component | Specification | Role |
+| :--- | :--- | :--- |
+| **Main Computer** | Raspberry Pi 4 Model B | AI Inference & Web Server |
+| **Microcontroller** | ESP32 | Motor & Sensor Control |
+| **Vision** | Raspberry Pi Camera Module | Visual Input for YOLOv8 |
+| **Actuators** | DC Motors + L298N Driver | Propulsion & Steering |
+| **Mechanics** | SG90 Servo | Pan Tilt Camera Mechanism |
+| **Sensors** | 4x HC-SR04 Ultrasonic | Obstacle Avoidance (Front/Back/Sides) |
+| **Power** | 3x18650 Li-ion(3.7v) + Power Bank | Independent power for motors vs. logic |
+
+---
+
+## 🧠 AI Engineering with Roboflow
+
+Data is the lifeblood of AI. I didn't just use a pre made model, I built a custom visual engine tailored for the Indonesian environment.
+
+* **Custom Dataset:** I curated and labeled **950 images** using **Roboflow**, specifically targeting local plastic waste.
+* **Specific Classes:** The model is trained to distinguish between generic plastic and specific local brands like **Aqua, Cleo, and Le Minerale** bottles.
+* **Training:** Leveraging **YOLOv8 Nano**, I optimized the model for edge deployment, achieving a balance of speed and accuracy that allows for real-time tracking in dynamic lighting.
+
+---
+
+## Challenges
+
+Building a custom robot from scratch came with significant engineering challenges:
+
+1.  **The Latency Bottleneck:** Initially, running both the AI and motor control on the Raspberry Pi caused the system to freeze. I solved this by decoupling the systems into the "Brain & Muscle" architecture.
+2.  **Lighting Conditions:** The vision system struggled in dim indoor lighting. I had to fine-tune the camera's ISO gain and implement a dynamic confidence threshold in the code to prevent false positives.
+3.  **Sensor Interference:** The ultrasonic sensors would sometimes interfere with each other. I wrote a custom timing algorithm in C++ for the ESP32 to trigger them sequentially rather than simultaneously.
+
+---
+
+## Future Improvements
+
+While the system is currently functional, I plan to push the boundaries further:
+
+* **Add 2 DOF Hand:** I want to add a robotic hand so it can also pick up trash.
+* **Adaptive Navigation:** Upgrading the obstacle avoidance logic from simple "stop and turn" to pathfinding algorithms like.
+* **Battery Management:** Designing a custom PCB for power distribution to replace the bulky power bank setup.
