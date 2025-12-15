@@ -106,7 +106,7 @@ export default function Home() {
             className="relative w-full h-[500px] md:h-[650px] flex flex-col justify-end translate-y-6 md:translate-y-12 rounded-2xl overflow-hidden md:rounded-none md:overflow-visible"
           >
              <Image 
-                src="/me-big.png" 
+                src="/Untitled.png" 
                 alt="Gung Febrian"
                 fill
                 className="object-cover object-top"
