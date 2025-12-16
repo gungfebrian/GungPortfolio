@@ -225,7 +225,7 @@ export default function Home() {
                </div>
                <div className="md:w-3/4 border-l border-zinc-800 pl-6 md:pl-8">
                <p className="text-zinc-400 text-sm leading-relaxed">
-                    Preparing to join a world-class cohort of innovators to master iOS development and design thinking. I will be focusing on the full product lifecycle from ideation to deployment building diverse applications that solve real world problems within the Apple ecosystem using Swift and SwiftUI.
+                Admitted to the Apple Developer Academy program, focusing on end-to-end iOS product development using Swift and SwiftUI. The program emphasizes design thinking, collaboration, and building real-world applications across the full product lifecycle within the Apple ecosystem.
                   </p>
                </div>
             </div>
