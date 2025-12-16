@@ -282,7 +282,7 @@ export default function Home() {
                </Link>
             </div>
             <p className="text-zinc-600 text-xs">
-               © 2025 Gung Febrian. "Courage. Leadership. Improvement."
+               © 2025 Gung Febrian.
             </p>
          </div>
       </footer>
