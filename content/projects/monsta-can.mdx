@@ -1,10 +1,10 @@
 ---
-title: MONSTA CAN - Gamified IoT Trashcan
+title: MONSTA CAN - Gamified IoT Trash can
 description: An interactive IoT device that transforms waste disposal into a gamified experience with automated mechanics and remote web monitoring.
 date: "2025-03-11"
 published: true
 image: /monsta-can.jpg
-repository: chronark/monsta-can
+repository: 
 tags:
   - "IoT"
   - "ESP32"
@@ -17,9 +17,9 @@ platform: "IoT & Embedded"
 
 # Reimagining the Mundane
 
-Everyday objects shouldn't be boring. **Monsta Can** is my answer to the question: *"Can we make cleaning fun?"*
+Everyday objects should not be boring. **Monsta Can** is my solution to a simple question: "Can we make cleaning fun?"
 
-I engineered this device to transform a simple utility into an engaging IoT experience. By fusing precise sensor technology with a responsive web interface, Monsta Can doesn't just hold trash—it interacts with you, counts your contributions, and gamifies the act of keeping your environment clean.
+I engineered this device to transform a basic utility into an engaging IoT experience. By fusing precise sensor technology with a responsive web interface, Monsta Can does more than hold trash, it interacts with the user, tracks contributions, and gamifies environmental discipline.
 
 <div className="my-8">
   <Image 
@@ -31,44 +31,73 @@ I engineered this device to transform a simple utility into an engaging IoT expe
   />
   <p className="text-center text-sm text-zinc-500 mt-4">The Monsta Can Web Interface (Mobile & Desktop)</p>
 </div>
-*(Note: Ensure your image file is located at `public/Gambar/monsta.png` or update the extension if it is .jpg)*
 
 ---
 
-## ⚡️ Hardware Specs
+## ⚡️ Technical Specifications
 
-Built on the robust ESP32 platform, Monsta Can operates wirelessly and efficiently.
+Built on the ESP32 platform, Monsta Can operates wirelessly and efficiently using the following stack:
 
 | Component | Specification | Role |
 | :--- | :--- | :--- |
-| **Microcontroller** | ESP32 | Wi-Fi Web Server & Logic Core |
-| **Actuator** | Servo SG90 | Precision Lid Mechanism |
-| **Sensors** | 2x Ultrasonic (HC-SR04) | Proximity & Object Detection |
-| **Power** | 3.7v Battery (20A) | High-Current Autonomous Power |
-| **Regulation** | 5v Step-Up Module | Voltage Stabilization for Sensors |
+| **Microcontroller** | ESP32 | Home Wi Fi Web Server & Logic Core |
+| **Actuator** | TowerPro MG996R | High Torque Metal Gear Lid Mechanism |
+| **Sensors** | 2x Ultrasonic HC SR04 | Proximity & Object Detection |
+| **Display** | 4 Digit 7 Segment | Real time Drop Counter & Status |
+| **Power** | 3.7v Battery 20A | High Current Autonomous Power |
+| **Regulation** | 5v Step Up Module | Voltage Stabilization for Sensors |
 
 ---
 
-## ⚙️ Engineering The Logic
+## ⚙️ The Logic Engine
 
-The system relies on a **Dual-Sensor Architecture** to automate the workflow seamlessly.
+The system utilizes a **Dual Sensor Architecture** to automate the workflow without user intervention.
 
-### 1. Proximity Automation (The Reflex)
-The first ultrasonic sensor acts as the robot's "eyes."
-* **Detection:** Continuously scans the frontal area for user presence.
-* **Action:** When you approach (within defined threshold), the ESP32 triggers the servo to lift the lid instantly. No touch required.
+### 1. Proximity Reflex
+The first ultrasonic sensor serves as the visual input for the system.
+* **Detection:** It continuously monitors the frontal area for user presence.
+* **Action:** When a user is detected within an exact **20 cm** threshold, the ESP32 triggers the servo to lift the lid instantly.
 
-### 2. Gamification Engine (The Scorekeeper)
-The second sensor is mounted inside the chassis.
-* **Tracking:** It monitors the internal volume. When an object passes through the opening, it registers a "drop."
-* **Logic:** The system increments the global counter, turning a chore into a high-score chase.
+### 2. Gamification Logic
+A second sensor is mounted inside the chassis to track activity.
+* **Tracking:** It monitors the internal volume to detect when an object passes the opening.
+* **Logic:** The system increments a global counter, turning a routine chore into a high score chase.
 
 ---
 
-## 📱 The Interface (UI/UX)
+## 🛠 Mechanical & Visual Engineering
 
-Control should be absolute and accessible. I hosted a dedicated **Web Server** directly on the ESP32, allowing any device on the network to access the dashboard.
+### High Torque Actuation
+For reliable operation, I chose the **TowerPro MG996R** servo. Unlike standard hobby motors, this unit uses **metal gears** to provide the torque necessary for a crisp lid response.
 
-* **Live Status:** Instantly view if the lid is `LOCKED` or `OPEN`.
-* **Real-Time Analytics:** Track your "Daily Drops" or total trash count with zero latency.
-* **Manual Override:** A full control suite allowing you to force-open the lid or reset the counters remotely.
+* **Mechanical Linkage:** The servo is mounted on the rear interior wall. It uses a custom linkage rod system to convert circular rotation into a linear vertical push.
+* **Motion Profile:** Upon trigger, the servo rotates **90°**, driving the rod upward to pivot the lid smoothly on its hinge.
+
+
+
+### Real Time Feedback
+The front mounted **4 Digit 7 Segment Display** provides an immediate interface for the user.
+
+* **Live Scoreboard:** Displays the current drop count registered by the internal sensors.
+* **System Status:** Provides visual cues for battery levels and network connection status during startup.
+
+---
+
+## 📱 Network Connectivity & UI
+
+I configured the ESP32 to integrate with the **Home Wi Fi Network**. This allow the dashboard to be accessed from any authorized device via a local IP address.
+
+<div className="my-8">
+  <Image 
+    src="/Gambar/monstaui.png" 
+    alt="Monsta Can UI/UX" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+  <p className="text-center text-sm text-zinc-500 mt-4">The Monsta Can Web Interface (Mobile & Desktop)</p>
+</div>
+
+* **Live Monitoring:** Check if the lid is locked or open from across the room.
+* **Data Analytics:** View total trash counts and daily activity with zero latency.
+* **Remote Control:** Full manual override capabilities to force open the lid or reset scores via the web dashboard.
