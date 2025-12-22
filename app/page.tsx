@@ -235,7 +235,7 @@ export default function Home() {
          <Card>
             <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
                <div className="md:w-1/4 shrink-0">
-                  <span className="text-zinc-500 font-mono text-sm">Internarional Relations</span>
+                  <span className="text-zinc-500 font-mono text-sm">International Relations</span>
                   <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">Team Member</h3>
                   <p className="text-zinc-400 text-sm">AIESEC</p>
                </div>

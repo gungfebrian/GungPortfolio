@@ -1,0 +1,129 @@
+---
+title: "Thermal Chamber - IoT Precision Climate Control"
+description: "A dual action incubation system implementing Hysteresis logic and a realtime Web Dashboard for stable thermal management."
+date: "2025-12-23"
+published: true
+image: /Gambar/hottumb.png
+tags:
+  - "IoT"
+  - "ESP32"
+  - "C++"
+  - "Embedded Systems"
+status: "Completed"
+platform: "Industrial & Laboratory IoT"
+---
+
+# The Mission
+
+In closed enclosures like acrylic boxes, heat often becomes trapped, causing temperatures to spike beyond safe limits. Simply adding a heater isn't enough; you need a dynamic system that can both generate and evacuate heat to maintain a delicate equilibrium.
+
+I engineered this **Thermal Chamber** to solve the problem of thermal instability. My objective was to create a stable environment using a PTC heater and an exhaust fan controlled by a single intelligent loop, ensuring the environment remains within a precise "Dead Zone" suitable for incubation.
+
+<div className="my-8">
+  <Image 
+    src="/Gambar/hott.png"
+    alt="Final Assembly of the Acrylic Thermal Chamber" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+  <p className="text-center text-sm text-zinc-500 mt-4">The physical realization of the thermal chamber using transparent acrylic for visibility and insulation.</p>
+</div>
+
+---
+
+## The Intelligence: Hysteresis Control Logic
+
+Instead of a simple ON/OFF thermostat that causes rapid, damaging relay switching (chattering), I implemented a **Hysteresis Algorithm**. This approach uses the system's history to prevent unnecessary oscillations and extend the lifespan of mechanical components.
+
+### The Logic Flow:
+* **Heating Phase:** If T Less Then 26.5°C, the PTC Heater activates and the Fan remains OFF.
+* **The Dead Zone (Stability):** Between **26.5°C and 27.5°C**, the system enters a "Dead Zone" where all actuators are OFF to save energy.
+* **Cooling Phase:** If T More than 27.5°C, the Fan activates to evacuate excess heat.
+
+
+
+<div className="my-8">
+  <Image 
+    src="/Gambar/histerisis.png"
+    alt="Hysteresis Control Logic Diagram" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+  <p className="text-center text-sm text-zinc-500 mt-4">The Hysteresis Control Logic flow designed to maintain stability and prevent relay chattering.</p>
+</div>
+
+---
+
+## Hardware & Architecture
+
+The system utilizes an **ESP32** as the central brain, processing real-time sensor data while simultaneously hosting a web server for remote interaction.
+
+| Component | Specification | Role |
+| :--- | :--- | :--- |
+| **Microcontroller** | ESP32 DevKit V1 | Main Processor & Wi-Fi Web Server |
+| **Sensor** | DHT-11 | Temperature & Humidity Sensing |
+| **Heating** | PTC Heater 12V | Thermal Generation |
+| **Cooling** | Brushless DC Fan 12V | Heat Evacuation |
+| **Power** | LM2596 Step-Down | Voltage Regulation (12V to 5V) |
+| **Display** | LCD I2C 16x2 | Local Real-time Monitoring |
+
+
+
+---
+
+## 🌐 Real-Time IoT Dashboard
+
+I developed a custom **Web Dashboard** hosted directly on the ESP32 (IP `192.168.4.1`). This provides an essential layer of control that conventional thermostats lack.
+
+* **High Responsiveness:** Data updates with an average latency of **&lt;200ms**.
+* **Manual Safety Override:** In emergency scenarios or sensor failures, I programmed the system so users can manually force the fan or heater ON/OFF via the web interface.
+* **Redundancy:** If the network fails, the physical LCD provides an immediate local backup for data monitoring.
+
+<div className="my-8">
+  <Image 
+    src="/Gambar/webhot.png"
+    alt="IoT Web Dashboard Interface" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+  <p className="text-center text-sm text-zinc-500 mt-4">The real-time dashboard showing current temperature and humidity with manual override controls.</p>
+</div>
+
+---
+
+## Challenges & Engineering Evaluation
+
+Professional engineering requires the courage to analyze failures. During the final demonstration, the exhaust fan failed to rotate despite the system status showing "ON".
+
+**My Post-Mortem Investigation:**
+1. **Mechanical Integrity:** The use of jumper wires on the relay output had low resistance to vibration. When the device was moved, the connection became loose.
+2. **Contact Resistance:** I identified high contact resistance in the fuse holder, causing momentary power instability.
+3. **The Solution:** For industrial-grade reliability, I concluded that moving from prototypes to **permanent terminal blocks and custom PCBs** is a non-negotiable requirement.
+
+---
+
+## Performance Results
+
+Despite the mechanical connection challenge, the software logic performed accurately. The system successfully maintained a stable "Dead Zone" with a maximum deviation of only **±0.8°C** during test runs.
+
+<div className="my-8">
+  <Image 
+    src="/Gambar/graph.png"
+    alt="Temperature Response Graph" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+  <p className="text-center text-sm text-zinc-500 mt-4">Graphical data showing the system reaching stability at 27°C after a pre-heating phase.</p>
+</div>
+
+---
+
+## Future Improvements
+
+* **Sensor Precision:** Replacing the DHT-11 with a higher accuracy sensor to reduce the current ±2°C tolerance for medical applications.
+* **Industrial Wiring:** Designing a custom PCB to eliminate jumper wire risks and improve aesthetic organization.
+* **Connectivity Indicators:** Adding a local LED or OLED indicator specifically for Wi-Fi signal status.
