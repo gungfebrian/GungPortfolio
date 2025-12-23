@@ -235,8 +235,8 @@ export default function Home() {
          <Card>
             <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
                <div className="md:w-1/4 shrink-0">
-                  <span className="text-zinc-500 font-mono text-sm">International Relations</span>
-                  <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">Team Member</h3>
+                  <span className="text-zinc-500 font-mono text-sm">Team Member</span>
+                  <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">International Relations</h3>
                   <p className="text-zinc-400 text-sm">AIESEC</p>
                </div>
                <div className="md:w-3/4 border-l border-zinc-800 pl-6 md:pl-8">
