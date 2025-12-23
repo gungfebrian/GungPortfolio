@@ -133,7 +133,7 @@ export default function Home() {
                 The Hybrid Mindset
                 </h2>
                 <p className="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
-                I don't just write code, I lead movements. My philosophy is built on the intersection of three pillars: technical expertise, physical discipline, and global leadership.
+                I don’t just write code. I build systems, lead teams, and ship ideas into reality. My philosophy is built on the intersection of three pillars: technical expertise, physical discipline, and global leadership.
                 </p>
                 <Link 
                   href="/resume.pdf" 

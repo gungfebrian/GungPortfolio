@@ -106,7 +106,7 @@ export function ProjectWrapper({ project, views }: Props) {
             <div className="w-full md:w-auto overflow-x-auto no-scrollbar">
                 <div className="flex items-center p-1 bg-zinc-950/50 border border-zinc-800 rounded-full shadow-inner min-w-max mx-auto md:mx-0">
                     <TabButton active={activeTab === "story"} onClick={() => setActiveTab("story")} icon={<Layers className="w-4 h-4" />} label="Overview" />
-                    <TabButton active={activeTab === "blueprint"} onClick={() => setActiveTab("blueprint")} icon={<Code className="w-4 h-4" />} label="The Blueprint" />
+                    <TabButton active={activeTab === "blueprint"} onClick={() => setActiveTab("blueprint")} icon={<Code className="w-4 h-4" />} label="Blueprint" />
                     <TabButton active={activeTab === "visuals"} onClick={() => setActiveTab("visuals")} icon={<ImageIcon className="w-4 h-4" />} label="Visuals" />
                 </div>
             </div>
@@ -161,7 +161,7 @@ export function ProjectWrapper({ project, views }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-[1fr_250px] gap-12">
                             <div>
                                 <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
-                                    <span className="w-1 h-8 bg-gradient-to-b from-white to-transparent rounded-full"></span> The Mission
+                                    <span className="w-1 h-8 bg-gradient-to-b from-white to-transparent rounded-full"></span> Overview
                                 </h3>
                                 <p className="text-lg text-zinc-400 leading-relaxed font-light">{project.description}</p>
                                 
