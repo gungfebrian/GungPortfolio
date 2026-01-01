@@ -40,7 +40,7 @@ export const Navigation: React.FC<Props> = ({ showSearch, searchQuery, setSearch
 								</div>
 								<input
 									type="text"
-									className="block w-full p-1.5 pl-10 text-sm text-zinc-200 border border-zinc-800 rounded-full bg-zinc-900/50 focus:ring-1 focus:ring-zinc-500 focus:border-zinc-500 placeholder-zinc-600 transition-all"
+									className="block w-full p-1.5 pl-10 text-sm text-zinc-200 border border-zinc-800 rounded-full bg-zinc-900/50 outline-none focus:ring-1 focus:ring-zinc-300 focus:border-zinc-300 placeholder-zinc-600 transition-all"
 									placeholder="Search projects..."
 									value={searchQuery}
 									onChange={(e) => setSearchQuery(e.target.value)}
