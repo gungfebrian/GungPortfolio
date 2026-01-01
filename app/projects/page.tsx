@@ -74,7 +74,7 @@ export default function ProjectsPage() {
   // Categorize filtered projects
   const bigProjects = filteredProjects.filter((p) =>
     p.slug === "Greenrover" ||
-    p.tags?.includes("Big Project") ||
+    p.tags?.includes("Featured") ||
     p.tags?.includes("Feature")
   );
 

@@ -1,0 +1,109 @@
+---
+title: T Moves AI Pull Up Tracker
+description: T Moves is a professional fitness application that achieves ninety percent detection accuracy through full body computer vision. By integrating real time movement analysis and advanced biomechanical validation, this tool ensures every repetition meets the highest standards of form and performance.
+date: "2025-11-03"
+published: true
+image: /images/t-moves-hero.png
+tags:
+  - "Flutter"
+  - "Computer Vision"
+  - "ML Kit"
+  - "Firebase"
+  - "Featured"
+status: "Completed"
+platform: "Mobile Application"
+---
+
+# The Mission
+
+As a dedicated hybrid athlete and computer engineering lead, I recognized that standard fitness applications often fail to capture the nuance of body weight exercises. Most trackers rely on simple sensors that miss subtle errors in posture and technique. 
+
+I engineered **T Moves** to bridge this gap, turning a smartphone into a dedicated AI coach that validates the integrity of every rep. Through rigorous testing, I successfully reduced false positives and improved detection reliability to help users reach their peak physical potential through precise data.
+
+---
+
+## The Architecture
+
+<div className="my-8">
+  <Image 
+    src="/images/t-moves-vision.png" 
+    alt="AI Computer Vision Landmark Detection" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+</div>
+
+The core of this project is a sophisticated movement detection system that delivers a **thirty percent increase in tracking performance**. By migrating from basic upper body tracking to a full body model, the system now analyzes twelve critical body landmarks simultaneously.
+
+### The Vision Engine
+The application processes a live video feed to extract twelve critical body landmarks. Unlike basic trackers that only see the upper body, T Moves analyzes the entire human frame from head to toe. This allows the system to distinguish between a genuine pull up and mere momentum or swinging.
+
+### Performance Achievements
+* **Accuracy Optimization**: Boosted detection accuracy from sixty percent to **ninety percent** by implementing full body movement validation.
+* **Feature Expansion**: Increased the validation framework from four basic checks to **seven comprehensive biomechanical conditions**.
+* **Reliability**: Improved detection in varied lighting by optimizing confidence thresholds from seventy percent down to a more robust **fifty percent**.
+* **System Intelligence**: Expanded landmark tracking by **one hundred percent**, moving from six upper body points to twelve full body points.
+
+---
+
+## Technical Stack
+
+Every component was selected to balance high performance processing with a seamless user experience.
+
+| Component | Specification | Role |
+| :--- | :--- | :--- |
+| **Framework** | Flutter | Cross Platform UI and Logic |
+| **Vision Engine** | Google ML Kit | Pose Detection and Landmark Extraction |
+| **Backend** | Firebase Firestore | Real Time Data Storage |
+| **Authentication** | Firebase Auth | Secure User Profile Management |
+| **Architecture** | Stream and Future Builders | Real Time UI Updates and Goal Sync |
+
+---
+
+## 🧠 Data Engineering and Real Time Synchronization
+
+Beyond the vision logic, the application features a sophisticated backend built on cloud technology. I implemented a real time synchronization system to ensure that user goals and progress are updated instantly across all views.
+
+* **Instant Goal Calibration**: Users can modify their targets and see progress bars recalculate without any manual refresh by using an integrated stream and future builder architecture.
+* **Intelligent State Machine**: I designed a transition cycle that moves from a down position to an up position, effectively eliminating double counting and requiring a complete return to the hanging position before the next rep is registered.
+
+<div className="my-8">
+  <Image 
+    src="/images/t-moves-dashboard.png" 
+    alt="T Moves User Dashboard and Goal Tracking" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+</div>
+
+---
+
+## Challenges
+
+Building T Moves required solving complex problems at the intersection of hardware and software.
+
+1. **The Precision Balance**: Initial tests were too strict and caused the app to miss valid reps. I recalibrated the arm angle and confidence thresholds to create a system that is both forgiving for natural movement and rigorous for form quality.
+2. **Eliminating Motion Noise**: To prevent the app from counting simple arm swings, I developed a temporal tracking algorithm that ensures the app only counts a rep when it detects the entire body moving vertically in unison.
+3. **Data Flow Optimization**: Processing high resolution pose data can lag on mobile devices. I optimized the data flow to maintain a smooth user experience while performing heavy computational checks.
+
+---
+
+## Future Improvements
+
+While the system is currently functional, I plan to push the boundaries further.
+
+* **Form Quality Score**: I want to add a robotic grade for every set based on how smoothly the user moves and how well they maintain alignment.
+* **Real Time Feedback**: Adding a visual indicator to show which specific form checks are currently failing during a set.
+* **Personalized Thresholds**: Allowing users to adjust sensitivity based on individual body mechanics or injury history.
+
+<div className="my-8">
+  <Image 
+    src="/images/t-moves-feedback.png" 
+    alt="Future Form Feedback UI Concept" 
+    width={1920} 
+    height={1080} 
+    className="rounded-xl border border-zinc-800 shadow-2xl" 
+  />
+</div>
