@@ -2,7 +2,8 @@
 import React from 'react';
 import { Card } from '../card';
 import { motion } from 'framer-motion';
-import { Apple, Users, Mic2, Wifi } from 'lucide-react';
+import { Users, Mic2, Wifi, Activity, Cpu } from 'lucide-react';
+import { RealAppleLogo } from '../icons/apple-logo';
 
 const BeyondTheCode = () => {
     const experiences = [
@@ -12,7 +13,7 @@ const BeyondTheCode = () => {
             organization: "Apple Developer Academy",
             period: "Upcoming 2026",
             description: "Admitted to the Apple Developer Academy program, focusing on end-to-end iOS product development using Swift and SwiftUI. The program emphasizes design thinking, collaboration, and building real-world applications across the full product lifecycle within the Apple ecosystem.",
-            icon: Apple,
+            icon: RealAppleLogo,
         },
         {
             id: 2,
@@ -23,7 +24,7 @@ const BeyondTheCode = () => {
                 "managed the integration between ESP32 sensors and Python scripts to ensure data stayed accurate and reliable during testing.",
                 "maintained Raspberry Pi prototypes and updated technical guides to help students troubleshoot hardware and software errors more effectively."
             ],
-            icon: Wifi,
+            icon: Cpu,
         },
         {
             id: 3,
@@ -70,30 +71,17 @@ const BeyondTheCode = () => {
             </motion.div>
 
             {/* Cards with staggered animation */}
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={{
-                    visible: { transition: { staggerChildren: 0.15 } },
-                    hidden: {}
-                }}
-                className="space-y-8"
-            >
+            <div className="space-y-8">
                 {experiences.map((exp) => {
                     const IconComponent = exp.icon;
 
                     return (
                         <motion.div
                             key={exp.id}
-                            variants={{
-                                hidden: { opacity: 0, y: 30 },
-                                visible: {
-                                    opacity: 1,
-                                    y: 0,
-                                    transition: { duration: 0.5, ease: "easeOut" }
-                                }
-                            }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: false, margin: "100px" }}
+                            transition={{ duration: 0.5, ease: "easeOut" }}
                         >
                             <Card>
                                 <div className="p-6 md:p-8">
@@ -152,7 +140,7 @@ const BeyondTheCode = () => {
                         </motion.div>
                     );
                 })}
-            </motion.div>
+            </div>
         </section>
     );
 };

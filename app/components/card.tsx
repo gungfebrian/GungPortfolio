@@ -23,13 +23,10 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 	return (
 		<motion.div
 			onMouseMove={onMouseMove}
-			initial={{ opacity: 0, y: 20 }}
-			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: false, margin: "100px" }}
 			whileHover={{ scale: 1.015 }}
 			transition={{
-				opacity: { duration: 0.5, ease: "easeOut" },
-				y: { duration: 0.5, ease: "easeOut" },
+				duration: 0.5,
+				ease: "easeOut",
 				scale: { duration: 0.2, ease: "easeOut" }
 			}}
 			className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 cursor-default"
