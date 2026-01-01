@@ -1,0 +1,73 @@
+"use client";
+import React from 'react';
+import { Card } from '../card';
+
+const BeyondTheCode = () => {
+    return (
+        <section id="experience" className="w-full py-24 px-6 md:px-12 max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 text-zinc-100 font-display">
+                    Beyond the Code
+                </h2>
+                <p className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto">
+                    Technical skills build products, but leadership builds legacies. Here is how I drive impact outside the terminal.
+                </p>
+            </div>
+
+            <div className="space-y-8">
+                <Card>
+                    <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                        <div className="md:w-1/4">
+                            <span className="text-zinc-500 font-mono text-sm">Upcoming 2026</span>
+                            <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">Cohort</h3>
+                            <p className="text-zinc-400 text-sm">Apple Developer Academy</p>
+                        </div>
+                        <div className="md:w-3/4 border-l border-zinc-800 pl-6 md:pl-8">
+                            <p className="text-zinc-400 text-sm leading-relaxed">
+                                Admitted to the Apple Developer Academy program, focusing on end-to-end iOS product development using Swift and SwiftUI. The program emphasizes design thinking, collaboration, and building real-world applications across the full product lifecycle within the Apple ecosystem.
+                            </p>
+                        </div>
+                    </div>
+                </Card>
+
+                {/* AIESEC Card */}
+                <Card>
+                    <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                        <div className="md:w-1/4 shrink-0">
+                            <span className="text-zinc-500 font-mono text-sm">Team Member</span>
+                            <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">International Relations</h3>
+                            <p className="text-zinc-400 text-sm">AIESEC</p>
+                        </div>
+                        <div className="md:w-3/4 border-l border-zinc-800 pl-6 md:pl-8">
+                            <ul className="list-disc list-inside text-zinc-400 space-y-2 text-sm ml-4">
+                                <li>Facilitated international partnerships within the External Relations division.</li>
+                                <li>Managed cross-cultural communications with diverse global stakeholders.</li>
+                                <li>Executed social impact projects to drive community engagement.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </Card>
+
+                {/* TEDx Card */}
+                <Card>
+                    <div className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+                        <div className="md:w-1/4 shrink-0">
+                            <span className="text-zinc-500 font-mono text-sm">Organizer</span>
+                            <h3 className="text-xl font-bold text-zinc-200 mt-1 font-display">Internal Relations</h3>
+                            <p className="text-zinc-400 text-sm">TEDxITS</p>
+                        </div>
+                        <div className="md:w-3/4 border-l border-zinc-800 pl-6 md:pl-8">
+                            <ul className="list-disc list-outside text-zinc-400 space-y-2 text-sm ml-4">
+                                <li>Streamlined communication between speaker, production, and logistics teams.</li>
+                                <li>Ensured operational synergy for the seamless execution of large-scale events.</li>
+                                <li>Managed internal resources and schedules under strict timelines.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </Card>
+            </div>
+        </section>
+    );
+};
+
+export default BeyondTheCode;

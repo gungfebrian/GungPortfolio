@@ -21,9 +21,18 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 	const style = { maskImage, WebkitMaskImage: maskImage };
 
 	return (
-		<div
+		<motion.div
 			onMouseMove={onMouseMove}
-			className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 "
+			initial={{ opacity: 0, y: 20 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: false, margin: "100px" }}
+			whileHover={{ scale: 1.015 }}
+			transition={{
+				opacity: { duration: 0.5, ease: "easeOut" },
+				y: { duration: 0.5, ease: "easeOut" },
+				scale: { duration: 0.2, ease: "easeOut" }
+			}}
+			className="overflow-hidden relative duration-700 border rounded-xl hover:bg-zinc-800/10 group md:gap-8 hover:border-zinc-400/50 border-zinc-600 cursor-default"
 		>
 			<div className="pointer-events-none">
 				<div className="absolute inset-0 z-0  transition duration-1000 [mask-image:linear-gradient(black,transparent)]" />
@@ -38,6 +47,6 @@ export const Card: React.FC<PropsWithChildren> = ({ children }) => {
 			</div>
 
 			{children}
-		</div>
+		</motion.div>
 	);
 };
