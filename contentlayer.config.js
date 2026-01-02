@@ -57,9 +57,14 @@ export const Project = defineDocumentType(() => ({
 			default: "Completed",
 		},
 		platform: {
-            type: "string",
-            description: "The platform this project runs on (e.g., Web, iOS, IoT)",
-        },
+			type: "string",
+			description: "The platform this project runs on (e.g., Web, iOS, IoT)",
+		},
+		highlights: {
+			type: "list",
+			of: { type: "string" },
+			description: "Key metrics/achievements (e.g., '300% faster', '95% accuracy')",
+		},
 	},
 	computedFields,
 }));

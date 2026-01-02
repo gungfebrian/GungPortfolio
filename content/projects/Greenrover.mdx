@@ -3,7 +3,7 @@ title: Green Rover - Autonomous Trash Detection
 description: Green Rover is an autonomous ground robot designed to detect and locate plastic waste in real time while navigating complex environments without human intervention. By combining on device computer vision with responsive motion control, the system enables stable, continuous operation in real world cleanup scenarios.
 date: "2025-11-01"
 published: true
-image: /Gambar/ROVER.png
+image: /Gambar/rova.png
 tags:
   - "IoT"
   - "ESP32"
@@ -14,6 +14,9 @@ tags:
   - "3D Printing"
 status: "Completed"
 platform: "IoT & Robotics"
+highlights:
+  - "14.5 FPS on device"
+  - "Dual control architecture"
 ---
 
 # The Mission
@@ -26,11 +29,28 @@ I engineered this robot, it is a fully autonomous agent capable of patrolling en
 
 ---
 
+## Real-Time Detection in Action
+
+<div className="my-8 flex justify-center">
+  <div className="max-w-lg w-full"> 
+    <Image 
+      src="/Gambar/detect.png" 
+      alt="Real-time plastic bottle detection with bounding boxes" 
+      width={1280} 
+      height={720} 
+      className="rounded-xl border border-zinc-800 shadow-xl"
+    />
+  </div>
+</div>
+
+During operation, Green Rover performs **continuous on device inference**, detecting plastic waste in real time while navigating autonomously.  
+Each detection includes **class labels and spatial positioning**, enabling stable tracking even under uneven lighting and cluttered backgrounds.
+
 ## The Architecture
 
 <div className="my-8">
   <Image 
-    src="/Gambar/ROVER2.png"
+    src="/Gambar/ROVER.png"
     alt="Final Assembly of the Acrylic Thermal Chamber" 
     width={1920} 
     height={1080} 
@@ -38,17 +58,16 @@ I engineered this robot, it is a fully autonomous agent capable of patrolling en
   />
 </div>
 
-
-The core innovation of Green Rover is its **Hybrid Dual-Controller System**—a "Brain and Muscle" architecture designed to overcome the hardware limitations of standard IoT devices.
+The core innovation of Green Rover is its **Hybrid Dual Controller System**, a "Brain and Muscle" architecture designed to overcome the hardware limitations of standard IoT devices.
 
 ### The Brain: Raspberry Pi 4
-* **Role:** High-Level Intelligence.
+* **Role:** High Level Intelligence.
 * **Function:** Runs the YOLOv8 Neural Network, processes voice commands, and hosts the web dashboard.
 * **Why:** It delegates all physical exertion to the ESP32, ensuring the AI never stutters.
 
 ### The Muscle: ESP32
-* **Role:** Real-Time Reflexes.
-* **Function:** Generates precise PWM signals for motors, controls the pan-tilt servo, and reads ultrasonic sensors in microseconds.
+* **Role:** Real Time Reflexes.
+* **Function:** Generates precise PWM signals for motors, controls the pan tilt servo, and reads ultrasonic sensors in microseconds.
 * **Impact:** This split architecture boosted system performance by **300%**, jumping from 4.5 FPS to **14.5 FPS**.
 
 ---
@@ -79,13 +98,38 @@ Data is the lifeblood of AI. I didn't just use a pre made model, I built a custo
 
 ---
 
+## Observed Performance Metrics
+
+| Metric | Result |
+|------|-------|
+| Inference Speed | ~14.5 FPS (on-device) |
+| Detection Range | ~2–2.5 meters (indoor testing) |
+| Runtime Stability | Continuous operation without frame drops |
+| Power Separation | Stable inference under motor load |
+
+All measurements were observed during real-world testing rather than simulated environments.
+
+---
+
 ## Challenges
 
 Building a custom robot from scratch came with significant engineering challenges:
 
 1.  **The Latency Bottleneck:** Initially, running both the AI and motor control on the Raspberry Pi caused the system to freeze. I solved this by decoupling the systems into the "Brain & Muscle" architecture.
-2.  **Lighting Conditions:** The vision system struggled in dim indoor lighting. I had to fine-tune the camera's ISO gain and implement a dynamic confidence threshold in the code to prevent false positives.
+2.  **Lighting Conditions:** The vision system struggled in dim indoor lighting. I had to fine tune the camera's ISO gain and implement a dynamic confidence threshold in the code to prevent false positives.
 3.  **Sensor Interference:** The ultrasonic sensors would sometimes interfere with each other. I wrote a custom timing algorithm in C++ for the ESP32 to trigger them sequentially rather than simultaneously.
+
+---
+
+## My Role & Ownership
+
+This project was **designed, built, and integrated end to end** by me, covering:
+
+* Dataset collection and annotation
+* YOLOv8 model training and optimization
+* ESP32 firmware (motor control, sensor timing)
+* Raspberry Pi AI pipeline and system orchestration
+* Mechanical assembly and electronics integration
 
 ---
 

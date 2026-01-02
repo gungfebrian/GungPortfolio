@@ -1,0 +1,99 @@
+---
+
+title: Sentinel Avoider - Intelligent Autonomous Navigation
+description: Sentinel Avoider is an advanced four wheel drive robotics platform built for high precision obstacle avoidance and spatial awareness. By leveraging an array of five ultrasonic sensors and the processing power of the ESP32, the system navigates complex environments with fluid movement and proactive path finding logic.
+date: "2025-12-10"
+published: true
+//image: /images/sentinel-hero.png
+tags:
+- "Robotics"
+- "ESP32"
+- "C++"
+- "Embedded Systems"
+- "Autonomous Navigation"
+status: "Completed"
+platform: "IoT & Robotics"
+highlights:
+  - "95% navigation accuracy"
+  - "180° sensor coverage"
+
+---
+
+# The Mission
+
+Modern robotics requires more than simple movement. It demands the ability to perceive and interact with a dynamic world. I engineered the **Sentinel Avoider** to serve as a robust foundation for autonomous navigation.
+
+The primary goal was to create a robot that does not just react to collisions but actively maps its surroundings to choose the most efficient path. Whether navigating a crowded room or avoiding dangerous edges, this platform demonstrates the power of multi sensor fusion in a compact mobile agent.
+
+---
+
+## The Architecture
+
+<div className="my-8">
+<Image
+src="/Gambar/sentinel.jpg"
+alt="Sensor Array Configuration and Chassis Layout"
+width={1920}
+height={1080}
+className="rounded-xl border border-zinc-800 shadow-2xl"
+/>
+</div>
+
+The system is designed around a high performance ESP32 microcontroller that acts as the central intelligence unit. This controller manages a complex sensor array and a powerful drive train simultaneously to ensure responsive behavior.
+
+### The Perception Array
+
+To achieve a wide field of view, I implemented a five point ultrasonic sensor system. These sensors are strategically angled to provide one hundred eighty degrees of coverage. This setup allows the robot to detect obstacles at the front, the diagonal corners, and the direct sides. This dense sensor data prevents the blind spots commonly found in simpler two sensor robots.
+
+<YouTube id= "5ACD7l4VZFo" />
+
+### The Drive System
+
+The robot utilizes a four wheel drive configuration powered by four high torque DC motors. A dedicated motor driver handles the power distribution from the twelve volt battery source, allowing for precise speed control and zero radius turning capabilities.
+
+---
+
+## Hardware & Components
+
+Every component was selected to maximize the power to weight ratio and ensure long operational cycles.
+
+| Component | Specification | Role |
+| --- | --- | --- |
+| **Main Controller** | ESP32 Dual Core | Navigation Logic & PWM Control |
+| **Drive Train** | 4x DC Motors | High Torque Propulsion |
+| **Motor Driver** | L298N / Dual Bridge | Power Distribution & Steering |
+| **Primary Sensors** | 5x HC-SR04 Ultrasonic | 180 Degree Spatial Perception |
+| **Safety Sensor** | 1x IR Line Sensor | Edge Detection & Cliff Avoidance |
+| **Power Source** | 3x 18650 Li-ion (11.1V-12V) | Sustained High Current Supply |
+
+---
+
+## 🧠 Navigation Logic & Intelligence
+
+The intelligence of Sentinel Avoider lies in its decision making algorithm. Instead of stopping when it sees an object, the robot constantly evaluates distance data from all five sensors to calculate a safety vector.
+
+* **Proactive Scanning**: The system compares distances from the left and right sensors to decide which direction offers the most open space before it reaches an obstacle.
+* **Accuracy Achievements**: Implementation of this logic resulted in a **ninety five percent success rate** in navigating tight corridors without manual intervention.
+* **Edge Safety**: The integrated line sensor acts as a cliff detector that overrides all navigation logic. If the robot detects the end of a surface, it immediately reverses and recalibrates its path.
+* **Processing Efficiency**: By utilizing the dual core nature of the ESP32, I achieved a **forty percent reduction in reaction latency** compared to single core implementations.
+
+---
+
+## Challenges
+
+Engineering an autonomous agent from scratch presented several technical hurdles:
+
+1. **Signal Echo Interference**: With five ultrasonic sensors firing rapidly, the sound waves would often interfere with each other. I solved this by writing a custom timing loop in C++ that triggers each sensor in a precise sequence to ensure every reading is accurate.
+2. **Power Stability**: The high draw from four motors would sometimes cause the logic board to reset. I implemented a decoupled power circuit using capacitors to stabilize the voltage and ensure continuous operation.
+3. **Real Time Logic**: Processing five sensor streams while controlling four motors required efficient code. I optimized the data flow to ensure the robot can make navigation decisions in milliseconds while moving at full speed.
+
+---
+
+## Future Improvements
+
+While the system is currently functional, I plan to push the boundaries further:
+
+* **SLAM Integration**: Incorporating basic Simultaneous Localization and Mapping to allow the robot to remember where obstacles are located.
+* **Mobile Dashboard**: Creating a web based interface via the ESP32 WiFi module to monitor sensor data in real time from a smartphone.
+* **Battery Management**: Designing a custom PCB for power distribution to replace the existing wiring harness for better efficiency.
+

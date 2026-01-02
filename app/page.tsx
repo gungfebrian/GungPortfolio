@@ -17,7 +17,8 @@ import {
   Briefcase,
   Code2,
   Mail,
-  ArrowUp
+  ArrowUp,
+  ArrowRight
 } from "lucide-react";
 import BeyondTheCode from "./components/isi/beyond";
 import About from "./components/isi/about";
@@ -89,7 +90,7 @@ export default function Home() {
           className="absolute inset-0 -z-10 animate-fade-in"
           quantity={100}
         />
-        <div className="z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="z-10 text-center px-4 max-w-3xl mx-auto">
 
           {/* Fixed Badge: Wraps text on mobile to prevent overflow */}
           <div className="inline-flex flex-wrap justify-center items-center gap-2 bg-zinc-900/50 border border-zinc-800 rounded-full px-4 py-2 mb-8 animate-fade-in mx-auto max-w-[90vw]">
@@ -99,16 +100,27 @@ export default function Home() {
             </span>
           </div>
 
-          <h1 className="py-2 text-5xl sm:text-7xl md:text-9xl text-transparent duration-1000 bg-white cursor-default text-edge-outline font-display whitespace-nowrap bg-clip-text animate-title drop-shadow-2xl">
+          <h1 className="inline-block py-2 pr-1 text-5xl sm:text-7xl md:text-9xl text-transparent duration-1000 bg-gradient-to-r from-white via-white to-white cursor-default text-edge-outline font-display whitespace-nowrap bg-clip-text animate-title drop-shadow-2xl">
             Gung Febrian
           </h1>
 
           <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 my-8 animate-fade-right animate-glow" />
 
-          <h2 className="text-base md:text-lg text-zinc-400 mx-auto max-w-2xl px-4 animate-fade-in leading-relaxed">
+          <h2 className="text-base md:text-lg text-zinc-400 mx-auto max-w-2xl px-4 animate-fade-in leading-loose">
             Leading with vision. Building with
             <span className="text-zinc-200 font-semibold block md:inline"> precision.</span>
           </h2>
+
+          {/* Dominant CTA */}
+          <div className="mt-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-full font-semibold hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              View My Work
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
       </section>
 

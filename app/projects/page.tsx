@@ -123,7 +123,7 @@ export default function ProjectsPage() {
                 Featured Works
               </h3>
             </div>
-            <div className="grid grid-cols-1 gap-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mx-auto">
               {bigProjects.map((project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
 
         {/* 2. IoT Section */}
         {iotProjects.length > 0 && (
-          <section id="hardware-iot" className="mt-16 animate-fade-in-up animation-delay-200 scroll-mt-32">
+          <section id="hardware-iot" className="mt-20 animate-fade-in-up animation-delay-200 scroll-mt-32">
             <div className="flex items-center gap-4 mb-8 group/header">
               <div className="relative">
                 <div className="absolute -inset-1 bg-cyan-500/20 rounded-xl blur-lg opacity-0 group-hover/header:opacity-100 transition-all duration-500"></div>
@@ -147,7 +147,7 @@ export default function ProjectsPage() {
                 Hardware & IoT
               </h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mx-auto">
               {iotProjects.map((project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />
@@ -159,7 +159,7 @@ export default function ProjectsPage() {
 
         {/* 3. Code Section */}
         {codeProjects.length > 0 && (
-          <section id="software-code" className="mt-16 animate-fade-in-up animation-delay-400 scroll-mt-32">
+          <section id="software-code" className="mt-20 animate-fade-in-up animation-delay-400 scroll-mt-32">
             <div className="flex items-center gap-4 mb-8 group/header">
               <div className="relative">
                 <div className="absolute -inset-1 bg-indigo-500/20 rounded-xl blur-lg opacity-0 group-hover/header:opacity-100 transition-all duration-500"></div>
@@ -171,7 +171,7 @@ export default function ProjectsPage() {
                 Software & Code
               </h3>
             </div>
-            <div className="grid grid-cols-1 gap-8 mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mx-auto">
               {codeProjects.map((project) => (
                 <Card key={project.slug}>
                   <Article project={project} views={views[project.slug] ?? 0} />

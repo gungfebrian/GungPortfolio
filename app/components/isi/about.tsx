@@ -3,7 +3,7 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Card } from '../card';
+import { AboutCard } from '../about-card';
 import {
     Cpu,
     Activity,
@@ -29,10 +29,10 @@ const About = () => {
                     <div className="absolute -inset-4 bg-gradient-to-br from-white/10 to-zinc-600/20 blur-3xl opacity-50 group-hover:opacity-100 transition-all duration-700"></div>
 
                     {/* Glass Frame Container - Enhanced Contrast */}
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden backdrop-blur-2xl bg-white/5 border-2 border-white/15 shadow-2xl shadow-black/70 ring-1 ring-white/5 group-hover:bg-white/1 group-hover:border-white/20 group-hover:shadow-white/5 transition-all duration-700">
+                    <div className="relative w-full h-full rounded-xl overflow-hidden backdrop-blur-2xl bg-white/5 border-2 border-white/15 shadow-2xl shadow-black/70 ring-1 ring-white/5 group-hover:bg-white/1 group-hover:border-white/20 group-hover:shadow-white/5 transition-all duration-700">
 
                         {/* Inner glass layer */}
-                        <div className="absolute inset-[1px] rounded-2xl bg-gradient-to-br from-white/5 via-transparent to-white/5"></div>
+                        <div className="absolute inset-[1px] rounded-xl bg-gradient-to-br from-white/5 via-transparent to-white/5"></div>
 
                         {/* Photo - Grayscale to Color */}
                         <div className="relative w-full h-full grayscale group-hover:grayscale-0 transition-all duration-700">
@@ -49,7 +49,7 @@ const About = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-500 pointer-events-none" />
 
                         {/* Glass edge highlights */}
-                        <div className="absolute inset-0 rounded-2xl pointer-events-none">
+                        <div className="absolute inset-0 rounded-xl pointer-events-none">
                             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
                             <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-white/30 to-transparent"></div>
                         </div>
@@ -122,7 +122,7 @@ const About = () => {
                     </motion.div>
 
                     <div className="space-y-4">
-                        <Card>
+                        <AboutCard>
                             <div className="flex gap-4 p-4 items-start">
                                 <div className="bg-zinc-800 p-2 rounded-lg text-zinc-200 shrink-0">
                                     <Cpu size={24} />
@@ -132,9 +132,9 @@ const About = () => {
                                     <p className="text-sm text-zinc-400">I build end to end solutions: software, IoT, and data driven prototypes.</p>
                                 </div>
                             </div>
-                        </Card>
+                        </AboutCard>
 
-                        <Card>
+                        <AboutCard>
                             <div className="flex gap-4 p-4 items-start">
                                 <div className="bg-zinc-800 p-2 rounded-lg text-zinc-200 shrink-0">
                                     <Activity size={24} />
@@ -144,9 +144,9 @@ const About = () => {
                                     <p className="text-sm text-zinc-400">Consistent iteration, measurable progress, and strong habits on and off the screen.</p>
                                 </div>
                             </div>
-                        </Card>
+                        </AboutCard>
 
-                        <Card>
+                        <AboutCard>
                             <div className="flex gap-4 p-4 items-start">
                                 <div className="bg-zinc-800 p-2 rounded-lg text-zinc-200 shrink-0">
                                     <Globe size={24} />
@@ -156,7 +156,7 @@ const About = () => {
                                     <p className="text-sm text-zinc-400">Comfortable leading, supporting, and coordinating across diverse teams.</p>
                                 </div>
                             </div>
-                        </Card>
+                        </AboutCard>
                     </div>
                 </div>
             </div>
