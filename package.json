@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@next/mdx": "^14.2.0",
+    "@react-three/drei": "9.99.0",
+    "@react-three/fiber": "8.15.19",
     "@upstash/redis": "^1.23.3",
     "contentlayer": "^0.3.4",
     "framer-motion": "^10.16.4",
@@ -24,6 +26,7 @@
     "rehype-pretty-code": "^0.10.1",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "3.0.1",
+    "three": "0.160.0",
     "typescript": "^5.2.2"
   },
   "devDependencies": {

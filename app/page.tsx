@@ -1,11 +1,15 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import dynamic from "next/dynamic";
 import Particles from "./components/particles";
 import { Card } from "./components/card";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import ExecutePipe from "./components/isi/ExecutePipe";
+
+// Dynamic import for 3D scene (no SSR)
+const Scene3D = dynamic(() => import("./components/3d/Scene3D"), { ssr: false });
 import {
   Cpu,
   Activity,
@@ -23,6 +27,7 @@ import {
 import BeyondTheCode from "./components/isi/beyond";
 import About from "./components/isi/about";
 import Footer from "./components/isi/footer";
+import Journey from "./components/isi/journey";
 
 // Navigation with Icons for Mobile
 const navigation = [
@@ -69,12 +74,14 @@ export default function Home() {
                 }}
               >
                 {/* Mobile View: Icon Bubble */}
-                <span className="md:hidden p-2.5 rounded-full bg-zinc-800/50 text-zinc-400 group-hover:text-white group-hover:bg-zinc-700 transition-all border border-transparent group-hover:border-zinc-600">
+                <span className="md:hidden p-2.5 rounded-full bg-zinc-800/50 text-zinc-400 group-hover:text-white group-hover:bg-zinc-700 transition-all border border-transparent group-hover:border-zinc-600
+                  group-focus-visible:text-white group-focus-visible:bg-zinc-700 group-focus-visible:border-zinc-600 group-focus-visible:outline-none group-focus-visible:ring-2 group-focus-visible:ring-zinc-400">
                   {item.icon}
                 </span>
 
                 {/* Desktop View: Text */}
-                <span className="hidden md:block text-sm font-medium duration-500 text-zinc-500 hover:text-zinc-200">
+                <span className="hidden md:block text-sm font-medium duration-500 text-zinc-500 hover:text-zinc-200
+                  group-focus-visible:text-zinc-200 group-focus-visible:outline-none group-focus-visible:underline group-focus-visible:underline-offset-4">
                   {item.name}
                 </span>
               </Link>
@@ -85,6 +92,7 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <section id="home" className="flex flex-col items-center justify-center w-full h-screen relative pt-20 md:pt-0">
+
         <div className="hidden w-screen h-px md:block bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0 absolute top-1/3 animate-fade-left animate-glow" />
         <Particles
           className="absolute inset-0 -z-10 animate-fade-in"
@@ -115,7 +123,8 @@ export default function Home() {
           <div className="mt-8 opacity-0 animate-fade-in" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-full font-semibold hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-zinc-100 text-zinc-900 rounded-full font-semibold hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105
+                focus-visible:bg-white focus-visible:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               View My Work
               <ArrowRight className="w-5 h-5" />
@@ -126,6 +135,8 @@ export default function Home() {
 
       <About />
 
+      <Journey />
+
       <ExecutePipe />
 
       <BeyondTheCode />
@@ -134,9 +145,10 @@ export default function Home() {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 p-3 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-700 hover:border-zinc-600 transition-all duration-500 shadow-lg backdrop-blur-sm z-50 ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-          }`}
-        aria-label="Back to top"
+        className={`fixed bottom-8 right-8 p-3 rounded-full bg-zinc-800/80 border border-zinc-700 text-zinc-400 hover:text-zinc-100 hover:bg-zinc-700 hover:border-zinc-600 transition-all duration-500 shadow-lg backdrop-blur-sm z-50
+          focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-black focus-visible:outline-none
+          ${showBackToTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+        aria-label="Scroll back to top of page"
       >
         <ArrowUp className="w-5 h-5" />
       </button>

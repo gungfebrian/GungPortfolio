@@ -4,6 +4,8 @@ import { Card } from '../card';
 import { motion } from 'framer-motion';
 import { Users, Mic2, Wifi, Activity, Cpu } from 'lucide-react';
 import { RealAppleLogo } from '../icons/apple-logo';
+import { TEDxLogo } from '../icons/tedx-logo';
+import { AIESECLogo } from '../icons/aiesec-logo';
 
 const BeyondTheCode = () => {
     const experiences = [
@@ -36,7 +38,7 @@ const BeyondTheCode = () => {
                 "Managed cross-cultural communications with diverse global stakeholders.",
                 "Executed social impact projects to drive community engagement."
             ],
-            icon: Users,
+            icon: AIESECLogo,
         },
         {
             id: 4,
@@ -48,7 +50,7 @@ const BeyondTheCode = () => {
                 "Ensured operational synergy for the seamless execution of large-scale events.",
                 "Managed internal resources and schedules under strict timelines."
             ],
-            icon: Mic2,
+            icon: TEDxLogo,
         }
     ];
 

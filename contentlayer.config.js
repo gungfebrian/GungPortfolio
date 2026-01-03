@@ -33,6 +33,10 @@ export const Project = defineDocumentType(() => ({
 			type: "string",
 			required: true,
 		},
+		teaser: {
+			type: "string",
+			required: false,
+		},
 		date: {
 			type: "date",
 		},

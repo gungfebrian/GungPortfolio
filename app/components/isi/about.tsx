@@ -2,8 +2,12 @@
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { AboutCard } from '../about-card';
+
+// Dynamic import for 3D scene (no SSR)
+const Scene3D = dynamic(() => import('../3d/Scene3D'), { ssr: false });
 import {
     Cpu,
     Activity,
@@ -14,8 +18,11 @@ import {
 
 const About = () => {
     return (
-        <section id="about" className="w-full py-12 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex items-center">
-            <div className="grid md:grid-cols-2 gap-16 items-center w-full mt-12 md:mt-0">
+        <section id="about" className="relative w-full py-12 px-6 md:px-12 max-w-7xl mx-auto min-h-screen flex items-center overflow-hidden">
+            {/* 3D Background */}
+            <Scene3D />
+
+            <div className="grid md:grid-cols-2 gap-16 items-center w-full mt-12 md:mt-0 relative z-10">
 
                 {/* Photo Column - Simple Hover Reveal */}
                 <motion.div
